@@ -45,14 +45,14 @@ const getReaction = (game: Game): string => {
 
 const scoreValues = { A: 1, B: 2, C: 3, X: 1, Y: 2, Z: 3 };
 
-const getPoints = (symbol) => {
+const getPoints = (symbol): number => {
   return scoreValues[symbol];
 };
-const getPoints2 = (game) => {
-  return [scoreValues[game[0]], scoreValues[getReaction(game)]];
+const getPointsForGame = (game): [number, number] => {
+  return [getPoints([game[0]]), getPoints(getReaction(game))];
 };
 
-const getScore = (g) => {
+const getScore = (g): 0 | 3 | 6 => {
   if (g[0] === g[1]) {
     return 3; // draw
   }
@@ -66,7 +66,7 @@ const getScore = (g) => {
   return 6; // lost
 };
 
-const input = await readInput(
+const input: string = await readInput(
   "/Users/markopohl/Documents/adventofcode/src/data/day02.txt"
 );
 
@@ -75,17 +75,17 @@ const games = input
   .split("\n")
   .map((score) => score.split(" "));
 const points = games.map((game) => game.map((symbol) => getPoints(symbol)));
-const points_2 = games.map((game) => getPoints2(game));
+const points_2 = games.map((game) => getPointsForGame(game));
 const scores = points.map((game) => getScore(game) + game[1]);
 const scores_2 = points_2.map((game) => getScore(game) + game[1]);
 const total = scores.reduce((score, sum) => score + sum);
 const total_2 = scores_2.reduce((score, sum) => score + sum);
 
-console.log(input);
+// console.log(input);
 // console.log(games);
 // console.log(points);
 // console.log(points_2);
-console.log(scores);
-console.log(scores_2);
-console.log(total);
-console.log(total_2);
+// console.log(scores);
+// console.log(scores_2);
+console.log("part 1:", total);
+console.log("part 2:", total_2);
