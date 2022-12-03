@@ -1,20 +1,21 @@
 import { readInput } from "./tools.mjs";
 
 /*
-A|X for Rock,
-B|Y for Paper
-C|Z for Scissors
-
-B 2 > A 1 = 3
-A 1 > C 3 = 4
-C 3 > B 2 = 5
-
 0:lost
 3:draw
 6:won
 */
 
 type Game = [string, string];
+
+const scoreValues = {
+  A: 1, // Rock
+  B: 2, // Paper
+  C: 3, // Scissors
+  X: 1, // Rock
+  Y: 2, // Paper
+  Z: 3, // Scissors
+};
 
 const getReaction = (game: Game): string => {
   switch (game[1]) {
@@ -42,8 +43,6 @@ const getReaction = (game: Game): string => {
       }
   }
 };
-
-const scoreValues = { A: 1, B: 2, C: 3, X: 1, Y: 2, Z: 3 };
 
 const getPoints = (symbol): number => {
   return scoreValues[symbol];
