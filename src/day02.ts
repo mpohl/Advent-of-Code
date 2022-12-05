@@ -65,9 +65,7 @@ const getScore = (g): 0 | 3 | 6 => {
   return 6; // lost
 };
 
-const input: string = await readInput(
-  "/Users/markopohl/Documents/adventofcode/src/data/day02.txt"
-);
+const input: string = await readInput("src/data/day02.txt");
 
 const games = input
   .trim()
