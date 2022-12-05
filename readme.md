@@ -174,6 +174,6 @@ Shell script / TypeScript: `ts-node-esm ./src/day02.ts`
 
 Part One: 7793
 
-Part Two: 
+Part Two: 2499
 
 Shell script / TypeScript: `ts-node-esm ./src/day03.ts`
